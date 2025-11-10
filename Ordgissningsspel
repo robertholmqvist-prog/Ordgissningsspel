@@ -1,1 +1,6 @@
-print("hello world")
+import random as rand
+ord = ["Chimpanser", "Saltgurka", "Vinden", "Safari", "Vävstol", "Badvakt", "Pilbåge", "Eluttag", "Chongqing", "Brandlarm", "Åsna", "Spyfluga", "Indien", "Avfall", "Ganges", "Porslin", "Slumområden", "Höghus", "Orangutang", "Kompost", "Panel", "Dhal", "Krut", "Tidtagarur", "Dynamometer", "Gräsmatta", "Stenmur", "Kortslutning", "Jordgubbar", "Magi", "Kristall", "Vulkan", "Pirat", "Karibien", "Fattigdom", "Orkan", "Gräsand", "Måttbandsväg", "Ollonborre", "Maskros", "Sibirien"]
+print("Välkommen till ordgissningsspelet!")
+print("Du har 9 försök på dig att gissa det hemliga ordet, bokstav för bokstav.")
+
+
