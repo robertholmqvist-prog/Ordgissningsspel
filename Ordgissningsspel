@@ -1,6 +1,24 @@
 import random as rand
-ord = ["Chimpanser", "Saltgurka", "Vinden", "Safari", "Vävstol", "Badvakt", "Pilbåge", "Eluttag", "Chongqing", "Brandlarm", "Åsna", "Spyfluga", "Indien", "Avfall", "Ganges", "Porslin", "Slumområden", "Höghus", "Orangutang", "Kompost", "Panel", "Dhal", "Krut", "Tidtagarur", "Dynamometer", "Gräsmatta", "Stenmur", "Kortslutning", "Jordgubbar", "Magi", "Kristall", "Vulkan", "Pirat", "Karibien", "Fattigdom", "Orkan", "Gräsand", "Måttbandsväg", "Ollonborre", "Maskros", "Sibirien"]
+ord = ["chimpanser", "saltgurka", "vinden", "safari", "vävstol", "badvakt", "pilbåge", "eluttag", "chongqing", "brandlarm", "åsna", "spyfluga", "indien", "avfall", "ganges", "porslin", "slumområden", "höghus", "orangutang", "kompost", "panel", "dhal", "krut", "tidtagarur", "dynamometer", "gräsmatta", "stenmur", "kortslutning", "jordgubbar", "magi", "kristall", "vulkan", "pirat", "karibien", "fattigdom", "orkan", "gräsand", "måttbandsväg", "ollonborre", "maskros", "sibirien", "såg"]
+antal_försök = 9
+
 print("Välkommen till ordgissningsspelet!")
 print("Du har 9 försök på dig att gissa det hemliga ordet, bokstav för bokstav.")
 
-
+while True:
+    ord = rand.choice(ord)
+    gömma_ordet = ["X"] * len(ord)
+    antal_fel = 0
+    gissat  = set()
+    #väljer ett slumpmässigt ord från listan
+    #skapar en lista med X för varje bokstav i ordet
+    #sätter antal fel till 0
+    #skapar en tom mängd för gissade bokstäver
+    while True:
+        print("\nOrd: " + " ".join(gömma_ordet))
+        print(f"Gissade bokstäver: {', '.join(sorted(gissat)) if gissat else "Inga"}")
+        print(f"Antal felaktiga gissningar kvar: {antal_försök - antal_fel}")
+        bokstav = input("Gissa en bokstav: ").lower().strip()
+        if len(bokstav) != 1 or not bokstav.isalpha():
+            print("Vänligen gissa en enda bokstav.")
+            continue
