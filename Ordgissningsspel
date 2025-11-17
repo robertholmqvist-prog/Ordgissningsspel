@@ -16,9 +16,18 @@ while True:
     #skapar en tom mängd för gissade bokstäver
     while True:
         print("\nOrd: " + " ".join(gömma_ordet))
-        print(f"Gissade bokstäver: {', '.join(sorted(gissat)) if gissat else "Inga"}")
-        print(f"Antal felaktiga gissningar kvar: {antal_försök - antal_fel}")
-        bokstav = input("Gissa en bokstav: ").lower().strip()
-        if len(bokstav) != 1 or not bokstav.isalpha():
-            print("Vänligen gissa en enda bokstav.")
+        if gissat:
+            gissade_bokstäver = ",".join(gissat)
+        else:
+            gissade_bokstäver = "Inga"
+            print("gissade bokstäver: " + gissade_bokstäver)
+            print("Antal försök kvar: " + str(antal_försök - antal_fel))
+        
+        bokstav = input("Gissa en bokstav".lower().strip())
+
+        if len(bokstav) !=1 or not bokstav.isalpha():
+            print("Gissa med en bokstav!")
+            continue
+        if bokstav in gissat:
+            print("Du har redan gissat den här bokstaven")
             continue
