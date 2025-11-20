@@ -5,29 +5,50 @@ antal_försök = 9
 print("Välkommen till ordgissningsspelet!")
 print("Du har 9 försök på dig att gissa det hemliga ordet, bokstav för bokstav.")
 
-while True:
-    ord = rand.choice(ord)
-    gömma_ordet = ["X"] * len(ord)
-    antal_fel = 0
-    gissat  = set()
-    #väljer ett slumpmässigt ord från listan
-    #skapar en lista med X för varje bokstav i ordet
-    #sätter antal fel till 0
-    #skapar en tom mängd för gissade bokstäver
-    while True:
-        print("\nOrd: " + " ".join(gömma_ordet))
-        if gissat:
-            gissade_bokstäver = ",".join(gissat)
-        else:
-            gissade_bokstäver = "Inga"
-            print("gissade bokstäver: " + gissade_bokstäver)
-            print("Antal försök kvar: " + str(antal_försök - antal_fel))
+ord = rand.choice(ord)
+gömma_ordet = ["X"] * len(ord)
+gissat  = set()
+#väljer ett slumpmässigt ord från listan
+#skapar en lista med X för varje bokstav i ordet
+#sätter antal fel till 0
+#skapar en tom mängd för gissade bokstäver
+while antal_försök > 0:
+    print("\nOrd: " + " ".join(gömma_ordet))
+    if gissat:
+        gissade_bokstäver = ",".join(gissat)
+    else:
+        gissade_bokstäver = "Inga"
+    print("gissade bokstäver: " + gissade_bokstäver)
+    print("Antal försök kvar: " + str(antal_försök))
+    #Huvud utskrifterna
+    #Printar gömmda ordet
+    #ifall gissat skriver den det gissade ordet annars skriver det inget
+    #skriver även ut antalförsök kvar
         
-        bokstav = input("Gissa en bokstav".lower().strip())
+    bokstav = input("Gissa en bokstav:").lower().strip()
 
-        if len(bokstav) !=1 or not bokstav.isalpha():
-            print("Gissa med en bokstav!")
-            continue
-        if bokstav in gissat:
-            print("Du har redan gissat den här bokstaven")
-            continue
+    if len(bokstav) !=1 and not bokstav.isalpha():
+        print("\nGissa med en bokstav!")
+        continue
+    elif bokstav in gissat:
+        print("\nDu har redan gissat den här bokstaven")
+        continue
+    else:
+        gissat.add(bokstav)
+
+    if bokstav in ord:
+        print("\nDu gissade rätt bokstav")
+        for i in ord:
+            if bokstav == i:
+                
+    else:
+        print("Du gissade fel bokstav")
+        antal_försök -= 1
+    #input satsen som tar in gissningar.
+    #gör så att det går att skriva in fler grejer
+    #kollar ifall det är rätt
+
+
+
+
+
